@@ -4,9 +4,9 @@ It is result of ChatGPT. I dont really care, as long as it does it job good enou
 # What is this
 Telegram does not support getting updates from the start of a chatgroup for any bot. So if you want to get previous chats, I dont think they provide that
 
-**returns** : JSON
-
 This little script would help you get those previous messages
+
+**returns** : JSON
 
 ## Minus
 - I focus on text messages. it strips anchor from the hashtag, remove time and clearfix element
@@ -24,3 +24,5 @@ Extend it as you need. We heve AI now
 - it will print: ✅ chats initialized and sorted. Count: xx
 - Manually scroll up until the start of group chat or any length you desire. The console tab will update with updated counts
 - on console tab, type `exportChats()`, this will download the result as json
+
+That's it folks! Happy hacking
