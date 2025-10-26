@@ -25,14 +25,23 @@ function getDateGroups() {
   return groups;
 }
 
-// Helper: strip <a class="anchor-hashtag">…</a> but preserve its text (e.g. "#fuiyouh")
+// Helper: clean up the message DOM before extracting innerHTML
 function cleanMessageHTML(messageEl) {
   if (!messageEl) return '';
+
   const clone = messageEl.cloneNode(true);
+
+  // 1️⃣ Remove <span.clearfix> and <span.time>
+  clone.querySelectorAll('span.clearfix, span.time').forEach(span => {
+    span.remove();
+  });
+
+  // 2️⃣ Strip <a.anchor-hashtag> but keep text content (#tag stays)
   clone.querySelectorAll('a.anchor-hashtag').forEach(a => {
     const text = a.textContent || '';
     a.replaceWith(document.createTextNode(text));
   });
+
   return (clone.innerHTML || '').trim();
 }
 
